@@ -1,20 +1,28 @@
 # gif-extractor
 
-[![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
+Extract PNG frames from a set of GIF files, optionally upscaling them to a specific size (with nearest-neighbour scaling).
 
+Online demo:
+https://gif-extractor.netlify.app/
 
+## Approach
 
-## Install
+This uses [gifuct-js](https://github.com/matt-way/gifuct-js) to extract frames, and coalesces them into a raw ArrayBuffer. This is then encoded with [fast-png](https://www.npmjs.com/package/fast-png), and then saved to a folder on disk using Chrome's File System API.
 
-Use [npm](https://npmjs.com/) to install.
+## Build & Run Locally
+
+Clone, `cd` into this repo, then:
 
 ```sh
-npm install gif-extractor --save
+# install dependencies
+npm install
+
+# run local dev server
+npm run dev
+
+# or build website to disk
+npm run build
 ```
-
-## Usage
-
-[![NPM](https://nodei.co/npm/gif-extractor.png)](https://www.npmjs.com/package/gif-extractor)
 
 ## License
 
