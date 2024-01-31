@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <style>
+      html {
+        padding: 20px;
+        margin: 0;
+        font-family: monospace;
+      }
+
+      .outdir-name {
+        font-style: italic;
+      }
+      .dropper {
+        min-width: 250px;
+        min-height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+        margin: 0px;
+        padding: 20px;
+        border: 2px dashed #28a5ed;
+        border-radius: 20px;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-gap: 1rem;
+        place-items: start start;
+      }
+      .dropper-content {
+        font-size: 12px;
+        opacity: 0.5;
+      }
+
+      .dropper img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+      }
+      .submit-row,
+      .dir-row,
+      .size-row {
+        margin-top: 10px;
+        min-height: 32px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .status {
+        margin-top: 10px;
+        font-size: 10px;
+      }
+      .size-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .size-input-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 10px;
+      }
+      .size-row label {
+        margin-right: 10px;
+      }
+      .units {
+        font-size: 10px;
+        margin-left: 5px;
+      }
+      .outdir-select {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>GIF Extractor</h1>
+      <p>Extract PNG frames from GIFs and save to a target directory.</p>
+      <div class="not-supported" style="display: none; color: red">
+        ERROR: This page only works in newer versions of desktop Chrome browser.
+      </div>
+      <main class="content">
+        <div class="dropper"></div>
+        <div class="size-row">
+          <label>Upscaling</label>
+          <select class="size-select">
+            <option value="none" selected>None</option>
+            <option value="width">Width</option>
+            <option value="height">Height</option>
+          </select>
+          <div class="size-input-container" style="display: none">
+            <input
+              type="number"
+              class="size-input"
+              value="3200"
+              min="0"
+              max="16000"
+              step="1"
+            />
+            <span class="units">px</span>
+          </div>
+        </div>
+        <div class="dir-row">
+          <button class="outdir-select">Choose Output Directory</button>
+          <span class="outdir-name"></span>
+        </div>
+        <div class="submit-row">
+          <button class="extract" disabled>Extract</button>
+        </div>
+        <div class="status"></div>
+      </main>
+    </div>
+    <script src="js/index.js" type="module"></script>
+  </body>
+</html>

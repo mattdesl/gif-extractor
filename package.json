@@ -1,0 +1,38 @@
+{
+  "name": "gif-extractor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Matt DesLauriers",
+    "url": "https://github.com/mattdesl"
+  },
+  "type": "module",
+  "dependencies": {
+    "fast-png": "^6.2.0",
+    "gifuct-js": "^2.1.2",
+    "globby": "^14.0.0",
+    "idb-keyval": "^6.2.1",
+    "jimp": "^0.22.10",
+    "mkdirp": "^3.0.1",
+    "node-fetch": "^3.3.2",
+    "omggif": "^1.0.10"
+  },
+  "scripts": {
+    "dev": "esbuild index.js --bundle --outdir=www/js --servedir=www --format=esm --serve",
+    "build": "esbuild index.js --bundle --outdir=www/js --minify --format=esm"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattdesl/gif-extractor.git"
+  },
+  "homepage": "https://github.com/mattdesl/gif-extractor",
+  "bugs": {
+    "url": "https://github.com/mattdesl/gif-extractor/issues"
+  },
+  "devDependencies": {
+    "esbuild": "^0.20.0"
+  }
+}
