@@ -4,7 +4,9 @@
       html {
         padding: 20px;
         margin: 0;
-        font-family: monospace;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
       }
 
       .outdir-name {
@@ -19,7 +21,7 @@
         text-align: left;
         margin: 0px;
         padding: 20px;
-        border: 2px dashed #28a5ed;
+        border: 2px dashed tomato;
         border-radius: 20px;
 
         display: grid;
@@ -28,6 +30,8 @@
         place-items: start start;
       }
       .dropper-content {
+        font-family: monospace;
+        text-transform: lowercase;
         font-size: 12px;
         opacity: 0.5;
       }
@@ -54,6 +58,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        margin-top: 20px;
       }
       .size-input-container {
         display: flex;
@@ -61,7 +66,18 @@
         align-items: center;
         margin-left: 10px;
       }
+      .size-tool {
+        background: hsl(0, 0%, 90%);
+        border-radius: 10px;
+        padding: 10px 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 24px;
+      }
       .size-row label {
+        font-family: monospace;
+        /* text-transform: lowercase; */
         margin-right: 10px;
       }
       .units {
@@ -71,45 +87,77 @@
       .outdir-select {
         margin-right: 10px;
       }
+      .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding: 0;
+      }
+      footer {
+        color: black;
+        font-size: 12px;
+      }
+      a,
+      a:visited,
+      a:hover {
+        color: tomato;
+      }
+      h1 {
+        font-weight: 200;
+        color: tomato;
+        margin: 0;
+        padding-bottom: 5px;
+      }
     </style>
   </head>
   <body>
-    <div>
-      <h1>GIF Extractor</h1>
-      <p>Extract PNG frames from GIFs and save to a target directory.</p>
-      <div class="not-supported" style="display: none; color: red">
-        ERROR: This page only works in newer versions of desktop Chrome browser.
-      </div>
-      <main class="content">
-        <div class="dropper"></div>
-        <div class="size-row">
-          <label>Upscaling</label>
-          <select class="size-select">
-            <option value="none" selected>None</option>
-            <option value="width">Width</option>
-            <option value="height">Height</option>
-          </select>
-          <div class="size-input-container" style="display: none">
-            <input
-              type="number"
-              class="size-input"
-              value="3200"
-              min="0"
-              max="16000"
-              step="1"
-            />
-            <span class="units">px</span>
+    <div class="main">
+      <section class="main-content">
+        <h1>GIF Extractor</h1>
+        <p>Extract PNG frames from GIFs and save to a target directory.</p>
+        <div class="not-supported" style="display: none; color: red">
+          ERROR: This page only works in newer versions of desktop Chrome
+          browser.
+        </div>
+        <div class="content">
+          <div class="dropper"></div>
+          <div class="size-row">
+            <div class="size-tool">
+              <label>Upscaling</label>
+              <select class="size-select">
+                <option value="none" selected>None</option>
+                <option value="width">Width</option>
+                <option value="height">Height</option>
+              </select>
+              <div class="size-input-container" style="display: none">
+                <input
+                  type="number"
+                  class="size-input"
+                  value="3200"
+                  min="0"
+                  max="16000"
+                  step="1"
+                />
+                <span class="units">px</span>
+              </div>
+            </div>
           </div>
+          <div class="dir-row">
+            <button class="outdir-select">Choose Output Directory</button>
+            <span class="outdir-name"></span>
+          </div>
+          <div class="submit-row">
+            <button class="extract" disabled>Extract</button>
+          </div>
+          <div class="status"></div>
         </div>
-        <div class="dir-row">
-          <button class="outdir-select">Choose Output Directory</button>
-          <span class="outdir-name"></span>
-        </div>
-        <div class="submit-row">
-          <button class="extract" disabled>Extract</button>
-        </div>
-        <div class="status"></div>
-      </main>
+      </section>
+      <footer>
+        an
+        <a href="https://github.com/mattdesl/gif-extractor">open source</a>
+        tool created by <a href="https://mattdesl.com/">@mattdesl</a>
+      </footer>
     </div>
     <script src="js/index.js" type="module"></script>
   </body>

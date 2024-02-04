@@ -84,7 +84,7 @@ async function setup() {
   function addPlaceholder() {
     const span = document.createElement("span");
     span.classList.add("dropper-content");
-    span.textContent = `Drag & Drop your GIF files onto this page.`;
+    span.textContent = `Drag & Drop your GIF files onto this page...`;
     dropper.appendChild(span);
     return span;
   }

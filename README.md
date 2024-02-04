@@ -24,6 +24,10 @@ npm run dev
 npm run build
 ```
 
+## Also see
+
+- [giftool](https://github.com/mattdesl/gif-extractor) - to turn a sequence of frames into a GIF
+
 ## License
 
 MIT, see [LICENSE.md](http://github.com/mattdesl/gif-extractor/blob/master/LICENSE.md) for details.
